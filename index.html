@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balaghat RO Water</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .feature {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+        }
+        .feature img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .feature h2 {
+            color: #0077cc;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #0077cc;
+            color: white;
+            margin-top: 20px;
+        }
+        .order-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .order-section input, .order-section button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .order-section button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .order-section button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Balaghat RO Water</h1>
+        <p>Pure water for every occasion, just ₹25 per camper!</p>
+    </header>
+
+    <div class="container">
+        <section class="features">
+            <div class="feature">
+                <img src="https://www.example.com/fresh-water.jpg" alt="Fresh RO Water">
+                <h2>Fresh RO Water</h2>
+                <p>Guaranteed high-quality reverse osmosis water, tested for purity and taste.</p>
+            </div>
+            <div class="feature">
+                <img src="https://www.example.com/home-delivery.jpg" alt="Home Delivery">
+                <h2>Home Delivery</h2>
+                <p>Convenient delivery right to your doorstep, anytime you need.</p>
+            </div>
+            <div class="feature">
+                <img src="https://www.example.com/event-services.jpg" alt="Event Services">
+                <h2>Event Services</h2>
+                <p>Perfect for weddings, functions, or any special occasion.</p>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <h2>Order Now</h2>
+            <p>Fill out the form below to place your order.</p>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="text" id="phone" placeholder="Your Phone Number">
+            <input type="text" id="address" placeholder="Delivery Address">
+            <input type="number" id="quantity" placeholder="Number of Campers" min="1">
+            <button onclick="placeOrder()">Place Order</button>
+        </section>
+
+        <div id="order-confirmation" style="text-align: center; color: green;"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Balaghat RO Water. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function placeOrder() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (!name || !phone || !address || !quantity) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            const email = "youremail@example.com"; // Replace with your email
+            const subject = `New Order from ${name}`;
+            const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AAddress: ${address}%0D%0AQuantity: ${quantity}%0D%0A`;
+
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+            const confirmationMessage = `Thank you, ${name}! Your order for ${quantity} camper(s) has been placed. We will contact you at ${phone} and deliver to ${address} shortly.`;
+            document.getElementById('order-confirmation').innerText = confirmationMessage;
+        }
+    </script>
+</body>
+</html>
